@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { BehaviorSubject, Observable, observable } from 'rxjs';
 import { AdmissionDetails } from '../models/admission.model';
 import { AdmissionService } from '../services/admission.service';
 
@@ -10,8 +11,12 @@ import { AdmissionService } from '../services/admission.service';
 })
 export class AdmissionListContainerComponent implements OnInit {
   public userdata$ : Observable<AdmissionDetails[]>
-  constructor(private admissionservice:AdmissionService) { 
+  public editdata:BehaviorSubject<AdmissionDetails|string>
+public editdata$:Observable<AdmissionDetails | string>
+  constructor(private admissionservice:AdmissionService,private router:Router) { 
     this.userdata$ = new Observable<AdmissionDetails[]>()
+    this.editdata = new BehaviorSubject('');
+    this.editdata$ = this.editdata.asObservable();
   }
 
   ngOnInit(): void {
@@ -20,5 +25,9 @@ export class AdmissionListContainerComponent implements OnInit {
 onDelete(id:string){
   console.log(id);
 this.admissionservice.deleteData(id).subscribe()
+}
+edit(element:any){
+  this.admissionservice.edit(element)
+  this.router.navigate(['admission/edit'])
 }
 }

@@ -8,6 +8,7 @@ import { AdmissionComponent } from './admission.component';
 const routes: Routes = [{ path: '', component: AdmissionComponent ,
 children:[
   {path:'',component:AdmissionFormContainerComponent},
+  {path:'edit',component:AdmissionFormContainerComponent},
   {path:'list',component:AdmissionListContainerComponent}
 ]}];
 

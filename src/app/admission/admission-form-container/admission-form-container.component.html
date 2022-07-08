@@ -1,3 +1,4 @@
 <app-admission-form-presentation (ListData)="getData($event)"
+[editdata]="editdata$| async"
 (pincode)="postalPincode($event)"
 [postaldata]="postaldata$ | async"></app-admission-form-presentation>

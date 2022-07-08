@@ -19,15 +19,24 @@ public get userdata(): AdmissionDetails[] | null {
   return this._userdata;
 }
 @Output() public delete: EventEmitter<string>;
+@Output() public edit: EventEmitter<any>;
+
 public _userdata : AdmissionDetails[] | null
 
   constructor() { 
     this.delete = new EventEmitter();
+    this.edit = new EventEmitter();
+
 
   }
   displayedColumns: string[] = ['name', 'mobileno', 'email', 'dob','gender','address','bloodgroup','subject','action'];
 
   ngOnInit(): void {
+  }
+  onEdit(element){
+    this.edit.emit(element);
+    console.log(element);
+    
   }
 deleteByID(id:string){
 console.log(id);
