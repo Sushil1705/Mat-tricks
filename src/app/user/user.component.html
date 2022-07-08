@@ -1,0 +1,4 @@
+<app-user-form [editdata]="editdata$ |async"></app-user-form>
+<app-user-list [userdata]="userdata$ |async" 
+(delete)="delete($event)"
+(edit)="edit($event)"></app-user-list>

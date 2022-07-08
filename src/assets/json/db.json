@@ -1,0 +1,66 @@
+{
+  "UserList": [
+    {
+      "name": "Mayur ",
+      "age": "37",
+      "email": "ankita@mayur.com",
+      "mobileno": "9753575523",
+      "gender": "Male",
+      "skills": [
+        "developer",
+        "ssssss"
+      ],
+      "id": 14
+    }
+  ],
+  "AdmissionDetails": [
+    {
+      "name": "shuchii",
+      "dob": "2022-07-13T18:30:00.000Z",
+      "address": "sqcqcq",
+      "bloodgroup": "AB+",
+      "email": "ankita@mayur.com",
+      "mobileno": "9724677566",
+      "pincode": "396020",
+      "state": "fqwv",
+      "city": "vvwv",
+      "gender": "Female",
+      "subject": [
+        "scd"
+      ],
+      "id": 1
+    },
+    {
+      "name": "Mayur ",
+      "dob": "2022-07-12T18:30:00.000Z",
+      "address": "sqcqcq",
+      "bloodgroup": "AB+",
+      "email": "ayur@ankita.com",
+      "mobileno": "9724677566",
+      "pincode": "396020",
+      "state": "ssssss",
+      "city": "sqcsq",
+      "gender": "Male",
+      "subject": [
+        "scd"
+      ],
+      "id": 2
+    },
+    {
+      "name": "Mayur ",
+      "dob": "2022-07-14T18:30:00.000Z",
+      "address": "sqcsq",
+      "bloodgroup": "AB+",
+      "email": "ankita@mayur.com",
+      "mobileno": "9724677566",
+      "pincode": "396020",
+      "state": "",
+      "city": "Atul",
+      "gender": "Male",
+      "subject": [
+        "sqcsq"
+      ],
+      "id": 3
+    }
+  ]
+}

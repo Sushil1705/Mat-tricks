@@ -1,0 +1,23 @@
+<div class="h-100 d-flex flex-column">
+    <!-- Start: header -->
+    <div class="header bg-light border-bottom">
+        <button mat-icon-button color="warn" aria-label="Example icon button with a menu icon"
+            (click)="opened =!opened">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <!-- End: header -->
+    <mat-drawer-container class="h-100">
+        <!-- Start: sidebar -->
+        <mat-drawer [mode]="mode" [(opened)]="opened">
+            <app-sidebar></app-sidebar>
+        </mat-drawer>
+        <!-- Start: sidebar -->
+        <!-- Start: main -->
+        <mat-drawer-content>
+            <router-outlet></router-outlet>
+        </mat-drawer-content>
+        <!-- Start: main -->
+    </mat-drawer-container>
+
+</div>

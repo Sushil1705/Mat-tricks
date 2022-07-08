@@ -1,0 +1,11 @@
+.example-container {
+    width: 200px;
+  }
+.hover {
+  &:hover{
+    background-color: #f3f3f3;
+    transition: all 0.7s;
+    cursor: pointer;
+  }
+}
+  

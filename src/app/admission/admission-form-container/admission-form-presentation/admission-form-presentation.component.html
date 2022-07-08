@@ -1,0 +1,122 @@
+<div class="container p-3 d-flex justify-content-center align-items-center">
+  <form [formGroup]="addmisionForm" class="shadow w-100 border-1 p-4 mt-2 rounded">
+    <p class="d-flex justify-content-center fw-bold fs-6">Addmission Form</p>
+    <div class="row">
+      <div class="col-6">
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Please Enter Your Name" formControlName="name">
+          <mat-error *ngIf="addmisionForm.invalid">Please Enter Valid Name!!</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>MobileNo</mat-label>
+          <input matInput placeholder="Please Enter Your Age" formControlName="mobileno">
+          <mat-error *ngIf="addmisionForm.invalid">Please Enter Valid Age!!</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Please Enter Your Email" formControlName="email">
+          <mat-error *ngIf="addmisionForm.invalid">Please Enter Valid Name!!</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="dob">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>Pincode</mat-label>
+          <input matInput placeholder="Please Enter Your pincode" formControlName="pincode" (change)="onPincode()">
+          <mat-error *ngIf="addmisionForm.invalid">Please Enter Valid Pincode!!</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-4">
+        <!-- <mat-form-field class="w-100" appearance="outline">
+          <mat-label>State</mat-label>
+          <input matInput placeholder="Please Enter Your state" formControlName="state">
+          <mat-error *ngIf="addmisionForm.invalid">Please Enter Valid State!!</mat-error>
+        </mat-form-field> -->
+        <mat-form-field appearance="outline">
+            <mat-label>State</mat-label>
+            <input matInput placeholder="Please Enter Your city" formControlName="state" [value]="statepostal">
+        </mat-form-field>
+      </div>
+      <div class="col-4">
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>City</mat-label>
+          <mat-select  formControlName="city">
+            <!-- <mat-option [value]="citypostal[0]" selected>{{citypostal[0]}}</mat-option> -->
+            <mat-option *ngFor="let city of citypostal" [value]="city">{{city}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <mat-radio-group aria-label="Select an option" formControlName="gender">
+          <mat-radio-button value="Male" class="pe-2"> Male </mat-radio-button>
+          <mat-radio-button value="Female" class="pe-2"> Female </mat-radio-button>
+          <mat-radio-button value="Others"> Others </mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>Address</mat-label>
+          <input matInput placeholder="Please Enter Your Age" formControlName="address">
+          <mat-error *ngIf="addmisionForm.invalid">Please Enter Valid Address!!</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>Blood Group</mat-label>
+          <input matInput placeholder="Please Enter Your Email" formControlName="bloodgroup">
+          <mat-error *ngIf="addmisionForm.invalid">Please Enter Valid Blood Group!!</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <div formArrayName="subject">
+          <div *ngFor="let subject of subject.controls; let i=index" class="d-flex">
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label>Subject</mat-label>
+              <input matInput placeholder="Please Enter Your Skills" [formControlName]="i">
+              <mat-error *ngIf="addmisionForm.invalid">Please Enter Valid skill!!</mat-error>
+            </mat-form-field>
+            <div class="row">
+              <div class="col-6 mt-2">
+                <button type="button" class="ms-2" mat-mini-fab color="primary" (click)="addSkills()">
+                  <mat-icon>add</mat-icon>
+                </button>
+              </div>
+              <div class="col-6 mt-2">
+                <button mat-mini-fab color="warn" class="ms-2" (click)="removeSkill(i)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+      <button mat-raised-button color="primary" class="me-3" [disabled]="!addmisionForm.invalid"
+        (click)="onSubmit()">Submit</button>
+      <button mat-raised-button color="warn">Reset</button>
+
+
+    </div>
+  </form>
+</div>
